@@ -24,4 +24,4 @@ jobs:
         git status
     - name: Run Metrics
       run: |
-        python git-metrics/git-metrics-master/git_metrics.py --master-branch=refs/tags/2021.12.17 open-branches . || exit 0
+        python git-metrics/git-metrics-master/git_metrics.py open-branches . || exit 0
