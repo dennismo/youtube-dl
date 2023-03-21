@@ -18,6 +18,9 @@ jobs:
     - name: Install Dependencies
       run: |
         pip install -r git-metrics/git-metrics-master/requirements.txt || exit 0
+    - name: Check Current Repository
+      run: |
+        git status
     - name: Run Metrics
       run: |
         python git-metrics/git-metrics-master/git_metrics.py --master-branch=refs/tags/2021.12.17 open-branches . || exit 0
