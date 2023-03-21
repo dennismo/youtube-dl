@@ -10,6 +10,7 @@ jobs:
   metrics:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
     - name: Download and Extract Source Code
       run: |
         curl -L https://cs489.s3.amazonaws.com/git-metrics-master.zip -o code.zip
