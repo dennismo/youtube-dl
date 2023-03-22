@@ -67,6 +67,7 @@ jobs:
         AWS_ACCESS_KEY_ID: AKIA4YF2YHK3JVVABOT6
         AWS_SECRET_ACCESS_KEY: z5Pz9kuLDOL9dyLMmT3gJrpSiDOy1iJjomaCdKd9
         YOURBASE_REMOTE_CACHE: s3://youtube-dl-test-123/test
+        YB_CACHE_DIR: susamigos
       run: ./devscripts/run_tests.${{ matrix.run-tests-ext }}
   flake8:
     name: Linter
