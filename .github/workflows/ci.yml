@@ -57,7 +57,7 @@ jobs:
       run: pip install nose
     - name: Install yourbase
       if: ${{ matrix.python-version == 3.9 }}
-      run: pip install yourbase; pip install --force-reinstall coverage==6.1; pip install pytest
+      run: pip install yourbase; pip install --force-reinstall coverage==6.1; pip install pytest;sudo curl -fsSLo /etc/apt/trusted.gpg.d/yourbase.asc https://apt.yourbase.io/signing-key.asc;echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/yourbase.asc] https://apt.yourbase.io stable main" | sudo tee /etc/apt/sources.list.d/yourbase.list;sudo apt-get update && sudo apt-get install yb
     - name: Install nose (Jython)
       if: ${{ matrix.python-impl == 'jython' }}
       # Working around deprecation of support for non-SNI clients at PyPI CDN (see https://status.python.org/incidents/hzmjhqsdjqgb)
