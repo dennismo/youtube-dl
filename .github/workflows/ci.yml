@@ -52,7 +52,7 @@ jobs:
         version: v0.6.3
     - name: Install yourbase
       if: ${{ matrix.python-version == 3.9 }}
-      run: pip install yourbase==6.0.3; pip install --force-reinstall coverage==6.1; pip install pytest;
+      run: pip install yourbase==7.0.5; pip install --force-reinstall coverage==6.1; pip install pytest;
     - name: Install nose (Jython)
       if: ${{ matrix.python-impl == 'jython' }}
       # Working around deprecation of support for non-SNI clients at PyPI CDN (see https://status.python.org/incidents/hzmjhqsdjqgb)
