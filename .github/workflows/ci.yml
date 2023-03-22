@@ -60,6 +60,9 @@ jobs:
       with:
         # Pin to a specific version of yb. If omitted, defaults to the latest release.
         version: v0.6.3
+    - name: Install yourbase
+      if: ${{ matrix.python-version == 3.9 }}
+      run: pip install yourbase; pip install --force-reinstall coverage==6.1; pip install pytest;
     - name: Install nose (Jython)
       if: ${{ matrix.python-impl == 'jython' }}
       # Working around deprecation of support for non-SNI clients at PyPI CDN (see https://status.python.org/incidents/hzmjhqsdjqgb)
