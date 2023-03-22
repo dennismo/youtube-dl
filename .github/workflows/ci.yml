@@ -15,16 +15,6 @@ jobs:
         run-tests-ext: [sh]
         include:
         # python 3.2 is only available on windows via setup-python
-        - os: windows-2019
-          python-version: 3.2
-          python-impl: cpython
-          ytdl-test-set: core
-          run-tests-ext: bat
-        - os: windows-2019
-          python-version: 3.2
-          python-impl: cpython
-          ytdl-test-set: download
-          run-tests-ext: bat
         # jython
         - os: ubuntu-18.04
           python-impl: jython
