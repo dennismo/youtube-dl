@@ -50,7 +50,7 @@ jobs:
         AWS_ACCESS_KEY_ID: AKIA4YF2YHK3JVVABOT6
         AWS_SECRET_ACCESS_KEY: z5Pz9kuLDOL9dyLMmT3gJrpSiDOy1iJjomaCdKd9
         AWS_DEFAULT_REGION: us-east-1
-      run: aws s3 cp --recursive s3://youtube-dl-test-123/python $HOME/yourbase/python
+      run: aws s3 cp --recursive s3://youtube-dl-test-123/python $HOME/.cache/yourbase/python
     - name: Run tests
       continue-on-error: ${{ matrix.ytdl-test-set == 'download' || matrix.python-impl == 'jython' }}
       env:
