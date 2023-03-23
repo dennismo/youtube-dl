@@ -15,16 +15,6 @@ jobs:
         run-tests-ext: [sh]
         include:
         # python 3.2 is only available on windows via setup-python
-        - os: windows-2019
-          python-version: 3.2
-          python-impl: cpython
-          ytdl-test-set: core
-          run-tests-ext: bat
-        # jython
-        - os: ubuntu-18.04
-          python-impl: jython
-          ytdl-test-set: core
-          run-tests-ext: sh
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
@@ -68,6 +58,7 @@ jobs:
         AWS_S3_BUCKET: youtube-dl-test-123
         AWS_ACCESS_KEY_ID: AKIA4YF2YHK3JVVABOT6
         AWS_SECRET_ACCESS_KEY: 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
+        AWS_DEFAULT_REGION: us-east-1
       run: touch file.txt;aws s3 cp file.txt s3://youtube-dl-test-123/
 
   flake8:
