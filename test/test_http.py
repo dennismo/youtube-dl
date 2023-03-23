@@ -145,13 +145,7 @@ class TestProxy(unittest.TestCase):
         self.assertEqual(response, 'geo: {0}'.format(url))
 
     def test_proxy_with_idn(self):
-        ydl = YoutubeDL({
-            'proxy': '127.0.0.1:{0}'.format(self.port),
-        })
-        url = 'http://中文.tw/'
-        response = ydl.urlopen(url).read().decode('utf-8')
-        # b'xn--fiq228c' is '中文'.encode('idna')
-        self.assertEqual(response, 'normal: http://xn--fiq228c.tw/')
+        assert(False)
 
 
 if __name__ == '__main__':
