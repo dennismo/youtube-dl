@@ -50,7 +50,7 @@ jobs:
         AWS_ACCESS_KEY_ID: AKIA4YF2YHK3JVVABOT6
         AWS_SECRET_ACCESS_KEY: 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
         AWS_DEFAULT_REGION: us-east-1
-      run: sudo apt install sqlite3;aws s3 cp --recursive s3://youtube-dl-test-123/python $HOME/.cache/yourbase/python; sqlite3 $HOME/.cache/yourbase/python/snapshots/dennismo/youtube-dl/process/latest/yourbase.1of1.fg "update 'ast_nodes' set treeish= ${GITHUB_SHA}"
+      run: sudo apt install sqlite3;aws s3 cp --recursive s3://youtube-dl-test-123/python $HOME/.cache/yourbase/python; sqlite3 $HOME/.cache/yourbase/python/snapshots/dennismo/youtube-dl/process/latest/yourbase.1of1.fg "update 'ast_nodes' set treeish='${GITHUB_SHA}'"
     - name: Run tests
       continue-on-error: ${{ matrix.ytdl-test-set == 'download' || matrix.python-impl == 'jython' }}
       env:
