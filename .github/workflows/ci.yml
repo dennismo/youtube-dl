@@ -63,7 +63,7 @@ jobs:
         AWS_ACCESS_KEY_ID: AKIA4YF2YHK3JVVABOT6
         AWS_SECRET_ACCESS_KEY: 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
       run: ./devscripts/run_tests.${{ matrix.run-tests-ext }}
-    -name: send remote graph to s3 bucket
+    - name: send remote graph to s3 bucket
       env:
         AWS_S3_BUCKET: youtube-dl-test-123
         AWS_ACCESS_KEY_ID: AKIA4YF2YHK3JVVABOT6
