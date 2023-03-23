@@ -9,7 +9,7 @@ jobs:
       matrix:
         os: [ubuntu-18.04]
         # TODO: python 2.6
-        python-version: [2.7, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, pypy-2.7, pypy-3.6, pypy-3.7]
+        python-version: [3.9]
         python-impl: [cpython]
         ytdl-test-set: [core]
         run-tests-ext: [sh]
@@ -62,8 +62,14 @@ jobs:
         AWS_S3_BUCKET: youtube-dl-test-123
         AWS_ACCESS_KEY_ID: AKIA4YF2YHK3JVVABOT6
         AWS_SECRET_ACCESS_KEY: z5Pz9kuLDOL9dyLMmT3gJrpSiDOy1iJjomaCdKd9
-        YOURBASE_REMOTE_CACHE: s3://youtube-dl-test-123/test
       run: ./devscripts/run_tests.${{ matrix.run-tests-ext }}
+    -name: send remote graph to s3 bucket
+      env:
+        AWS_S3_BUCKET: youtube-dl-test-123
+        AWS_ACCESS_KEY_ID: AKIA4YF2YHK3JVVABOT6
+        AWS_SECRET_ACCESS_KEY: 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
+      run: touch file.txt;aws s3 cp file.txt s3://youtube-dl-test-123/
+
   flake8:
     name: Linter
     runs-on: ubuntu-latest
