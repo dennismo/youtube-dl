@@ -13,7 +13,6 @@ jobs:
         python-impl: [cpython]
         ytdl-test-set: [core]
         run-tests-ext: [sh]
-        include:
         # python 3.2 is only available on windows via setup-python
     steps:
     - uses: actions/checkout@v2
