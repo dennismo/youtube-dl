@@ -370,7 +370,7 @@ class TestUtil(unittest.TestCase):
         self.assertEqual(unified_timestamp('1968-12-10'), -33436800)
         self.assertEqual(unified_timestamp('28/01/2014 21:00:00 +0100'), 1390939200)
         self.assertEqual(
-            unified_timestamp('11/26/2014 11:30:00 AM PST', day_first=False),
+            unified_timestamp('11/26/2014 11:30:00 AM PST', day_first=True),
             1417001400)
         self.assertEqual(
             unified_timestamp('2/2/2015 6:47:40 PM', day_first=False),
