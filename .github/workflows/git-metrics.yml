@@ -28,3 +28,4 @@ jobs:
     - name: Run Metrics
       run: |
         python git-metrics/git-metrics-master/git_metrics.py open-branches . || exit 0
+        python git-metrics/git-metrics-master/git_metrics.py release-lead-time . || exit 0
