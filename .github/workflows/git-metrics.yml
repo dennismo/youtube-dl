@@ -10,7 +10,7 @@ jobs:
   metrics:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Download and Extract Source Code
       run: |
         curl -L https://cs489.s3.amazonaws.com/git-metrics-master.zip -o code.zip
@@ -22,6 +22,7 @@ jobs:
     - name: Check Current Repository
       run: |
         git status
+        ls .git
     - name: Run Metrics
       run: |
         python git-metrics/git-metrics-master/git_metrics.py open-branches . || exit 0
