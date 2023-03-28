@@ -1,11 +1,11 @@
 name: PyBuilder
-on: [push, pull_request]
+on: [pull_request]
 jobs:
   tests:
     name: Tests
     runs-on: ${{ matrix.os }}
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
         os: [ubuntu-18.04]
         python-version: [3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, pypy-3.6, pypy-3.7]
