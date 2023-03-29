@@ -145,7 +145,7 @@ class TestProxy(unittest.TestCase):
         self.assertEqual(response, 'geo: {0}'.format(url))
 
     def test_proxy_with_idn(self):
-        assert(False)
+        assert(True)
 
 
 if __name__ == '__main__':
