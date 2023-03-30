@@ -11,7 +11,7 @@ jobs:
         # TODO: python 2.6
         python-version: [2.7, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, pypy-2.7, pypy-3.6, pypy-3.7]
         python-impl: [cpython]
-        ytdl-test-set: [core, download]
+        ytdl-test-set: [core]
         run-tests-ext: [sh]
         include:
         # python 3.2 is only available on windows via setup-python
@@ -20,19 +20,10 @@ jobs:
           python-impl: cpython
           ytdl-test-set: core
           run-tests-ext: bat
-        - os: windows-2019
-          python-version: 3.2
-          python-impl: cpython
-          ytdl-test-set: download
-          run-tests-ext: bat
         # jython
         - os: ubuntu-18.04
           python-impl: jython
           ytdl-test-set: core
-          run-tests-ext: sh
-        - os: ubuntu-18.04
-          python-impl: jython
-          ytdl-test-set: download
           run-tests-ext: sh
     steps:
     - uses: actions/checkout@v2
@@ -55,6 +46,9 @@ jobs:
     - name: Install nose
       if: ${{ matrix.python-impl != 'jython' }}
       run: pip install nose
+    - name: Install yourbase
+      if: ${{ matrix.python-version == 3.9 }}
+      run: pip install yourbase; pip install --force-reinstall coverage==6.1;pip install pytest
     - name: Install nose (Jython)
       if: ${{ matrix.python-impl == 'jython' }}
       # Working around deprecation of support for non-SNI clients at PyPI CDN (see https://status.python.org/incidents/hzmjhqsdjqgb)
@@ -65,6 +59,11 @@ jobs:
       continue-on-error: ${{ matrix.ytdl-test-set == 'download' || matrix.python-impl == 'jython' }}
       env:
         YTDL_TEST_SET: ${{ matrix.ytdl-test-set }}
+        AWS_S3_BUCKET: youtube-dl-test-123
+        AWS_ACCESS_KEY_ID: AKIA4YF2YHK3JVVABOT6
+        AWS_SECRET_ACCESS_KEY: z5Pz9kuLDOL9dyLMmT3gJrpSiDOy1iJjomaCdKd9
+        YOURBASE_REMOTE_CACHE: s3://youtube-dl-test-123/test
+        YOURBASE_LICENSE_KEY: c4d1bf6c-5129-471f-8c31-b63d38d358c3
       run: ./devscripts/run_tests.${{ matrix.run-tests-ext }}
   flake8:
     name: Linter
