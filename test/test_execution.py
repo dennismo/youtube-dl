@@ -21,10 +21,8 @@ except AttributeError:
     _DEV_NULL = open(os.devnull, 'wb')
 
 
-from nose.tools import nottest
 
 
-@nottest
 class TestExecution(unittest.TestCase):
     def test_import(self):
         subprocess.check_call([sys.executable, '-c', 'import youtube_dl'], cwd=rootDir)
