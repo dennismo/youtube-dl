@@ -19,4 +19,4 @@ case "$YTDL_TEST_SET" in
     ;;
 esac
 
-nosetests test --verbose $test_set $multiprocess_args
+python -m unittest discover

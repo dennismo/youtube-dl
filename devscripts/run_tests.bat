@@ -14,4 +14,4 @@ if "%YTDL_TEST_SET%" == "core" (
     exit /b 1
 )
 
-nosetests test --verbose %test_set:"=% %multiprocess_args:"=%
+python -m unittest discover

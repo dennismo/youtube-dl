@@ -43,9 +43,6 @@ jobs:
         wget https://repo1.maven.org/maven2/org/python/jython-installer/2.7.1/jython-installer-2.7.1.jar -O jython-installer.jar
         java -jar jython-installer.jar -s -d "$HOME/jython"
         echo "$HOME/jython/bin" >> $GITHUB_PATH
-    - name: Install nose
-      if: ${{ matrix.python-impl != 'jython' }}
-      run: pip install nose
     - name: Install yourbase
       if: ${{ matrix.python-version == 3.9 }}
       run: pip install yourbase; pip install --force-reinstall coverage==6.1;pip install pytest
