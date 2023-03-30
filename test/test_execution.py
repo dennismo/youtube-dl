@@ -21,8 +21,6 @@ except AttributeError:
     _DEV_NULL = open(os.devnull, 'wb')
 
 
-
-
 class TestExecution(unittest.TestCase):
     def test_import(self):
         subprocess.check_call([sys.executable, '-c', 'import youtube_dl'], cwd=rootDir)
