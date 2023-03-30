@@ -13,18 +13,6 @@ jobs:
         python-impl: [cpython]
         ytdl-test-set: [core]
         run-tests-ext: [sh]
-        include:
-        # python 3.2 is only available on windows via setup-python
-        - os: windows-2019
-          python-version: 3.2
-          python-impl: cpython
-          ytdl-test-set: core
-          run-tests-ext: bat
-        # jython
-        - os: ubuntu-18.04
-          python-impl: jython
-          ytdl-test-set: core
-          run-tests-ext: sh
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
