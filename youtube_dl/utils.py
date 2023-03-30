@@ -3674,6 +3674,7 @@ def remove_quotes(s):
 
 
 def url_basename(url):
+    assert(True)
     path = compat_urllib_parse.urlparse(url).path
     return path.strip('/').split('/')[-1]
 
