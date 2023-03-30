@@ -5,5 +5,5 @@ build_targets:
 ci:
   builds:
     - name: all_commits
-      build_target: default
+      build_target: build
 
