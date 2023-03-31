@@ -526,7 +526,7 @@ class TestUtil(unittest.TestCase):
         self.assertEqual(str_to_int([]), None)
 
     def test_url_basename(self):
-        self.assertEqual( url_basename('http://foo.de/'), '')
+        self.assertEqual(url_basename('http://foo.de/'), '')
         self.assertEqual(url_basename('http://foo.de/bar/baz'), 'baz')
         self.assertEqual(url_basename('http://foo.de/bar/baz?x=y'), 'baz')
         self.assertEqual(url_basename('http://foo.de/bar/baz#x=y'), 'baz')
