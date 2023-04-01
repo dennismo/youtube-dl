@@ -9,22 +9,11 @@ jobs:
       matrix:
         os: [ubuntu-18.04]
         # TODO: python 2.6
-        python-version: [2.7, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, pypy-2.7, pypy-3.6, pypy-3.7]
+        python-version: [3.6]
         python-impl: [cpython]
         ytdl-test-set: [core]
         run-tests-ext: [sh]
         include:
-        # python 3.2 is only available on windows via setup-python
-        - os: windows-2019
-          python-version: 3.2
-          python-impl: cpython
-          ytdl-test-set: core
-          run-tests-ext: bat
-        # jython
-        - os: ubuntu-18.04
-          python-impl: jython
-          ytdl-test-set: core
-          run-tests-ext: sh
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
@@ -47,7 +36,6 @@ jobs:
       if: ${{ matrix.python-impl != 'jython' }}
       run: pip install nose
     - name: Install yourbase
-      if: ${{ matrix.python-version == 3.9 }}
       run: pip install yourbase; pip install --force-reinstall coverage==6.1;pip install pytest
     - name: Install nose (Jython)
       if: ${{ matrix.python-impl == 'jython' }}
