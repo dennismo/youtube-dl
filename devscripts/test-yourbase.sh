@@ -7,7 +7,10 @@ echo "---------Running initial test------------"
 
 # Edit some files
 echo "---------Editing files------------"
-echo "print('Hello World')" >> youtube_dl/extractor/buzzfeed.py
+
+sed -i 's/assert(True)/assert(False)/g' test/test_verbose_output.py
+echo "printing the file test/test/test_verbose_output.py"
+cat test/test_verbose_output.py
 
 # Run test again
 echo "--------Running test again------------"

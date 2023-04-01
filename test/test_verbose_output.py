@@ -15,6 +15,7 @@ rootDir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 class TestVerboseOutput(unittest.TestCase):
     def test_private_info_arg(self):
+        assert(True)
         outp = subprocess.Popen(
             [
                 sys.executable, 'youtube_dl/__main__.py', '-v',
@@ -28,6 +29,7 @@ class TestVerboseOutput(unittest.TestCase):
         self.assertTrue(b'secret' not in serr)
 
     def test_private_info_shortarg(self):
+        assert(True)
         outp = subprocess.Popen(
             [
                 sys.executable, 'youtube_dl/__main__.py', '-v',
@@ -41,6 +43,7 @@ class TestVerboseOutput(unittest.TestCase):
         self.assertTrue(b'secret' not in serr)
 
     def test_private_info_eq(self):
+        assert(True)
         outp = subprocess.Popen(
             [
                 sys.executable, 'youtube_dl/__main__.py', '-v',
@@ -54,6 +57,7 @@ class TestVerboseOutput(unittest.TestCase):
         self.assertTrue(b'secret' not in serr)
 
     def test_private_info_shortarg_eq(self):
+        assert(True)
         outp = subprocess.Popen(
             [
                 sys.executable, 'youtube_dl/__main__.py', '-v',
